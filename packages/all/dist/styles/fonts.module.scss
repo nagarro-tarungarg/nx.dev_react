@@ -1,0 +1,11 @@
+@mixin gt-walsheim-regular{
+    font-weight: 400;
+    font-style: normal;
+}
+@mixin gt-walsheim-medium {
+    @include gt-walsheim-regular
+}
+@mixin gt-walsheim-bold {
+    @include gt-walsheim-regular;
+    font-weight: 700;
+}

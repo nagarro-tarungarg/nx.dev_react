@@ -1,0 +1,86 @@
+{
+  "name": "@am-fwk/all",
+  "version": "0.1.8",
+  "main": "dist/components/index.js",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@storybook/addon-cssresources": "^6.2.9",
+    "@types/node": "^16.7.13",
+    "@types/node-sass": "^4.11.2",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "node-sass": "^7.0.1",
+    "react-scripts": "5.0.1",
+    "storybook-contrast": "^0.11.6",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-interactions": "^6.5.8",
+    "@storybook/addon-links": "^6.5.8",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.8",
+    "@storybook/manager-webpack4": "^6.5.8",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.5.8",
+    "@storybook/testing-library": "^0.0.12",
+    "@storybook/theming": "^6.5.9",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.2.5",
+    "copyfiles": "^2.4.1",
+    "css-loader": "5.2.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "react-app-rewired": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.52.3",
+    "sass-loader": "10.1.1",
+    "storybook-addon-designs": "^6.3.1",
+    "storybook-css-modules-preset": "^1.1.1",
+    "style-loader": "2.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": ["./dist/components/index.d.ts", "./dist/components/dbutton/DButton.d.ts"],
+      "import": ["./dist/components/index.js", "./dist/components/dbutton/DButton.js"]
+    },
+    "./dbutton": {
+      "types": "./dist/components/dbutton/DButton.d.ts",
+      "import": "./dist/components/dbutton/DButton.js"
+    },
+    "./base.scss": {
+      "types": "./dist/styles/base.module.scss",
+      "default": "./dist/styles/base.module.scss"
+    },
+    "./mixins.scss": {
+      "types": "./dist/styles/mixins.module.scss",
+      "default": "./dist/styles/mixins.module.scss"
+    },
+    "./variables.scss": {
+      "types": "./dist/styles/variables.module.scss",
+      "default": "./dist/styles/variables.module.scss"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/types/index.d.ts",
+        "dist/components/dbutton/DButton.d.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "@am-fwk:registry": "https://gitlab.com/api/v4/projects/37964496/packages/npm/"
+  }
+}

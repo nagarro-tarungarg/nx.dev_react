@@ -1,0 +1,70 @@
+@import './variables.module.scss';
+
+@mixin gt-walsheim-regular {
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin gt-walsheim-bold {
+    @include gt-walsheim-regular;
+    font-weight: 700;
+}
+
+@mixin regular-1 {
+    @include gt-walsheim-regular;
+    color: $black;
+    background-color: $white;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+@mixin heading-h1 {
+    @include regular-1;
+    font-size: 49px;
+}
+
+@mixin heading-h2 {
+    @include regular-1;
+    font-size: 42px;
+}
+
+@mixin heading-h3 {
+    @include regular-1;
+    font-size: 32px;
+}
+
+@mixin heading-h4 {
+    @include regular-1;
+    font-size: 24px;
+}
+
+@mixin heading-h5 {
+    @include regular-1;
+    font-size: 21px;
+}
+
+@mixin button-bold {
+    @include regular-1;
+    @include gt-walsheim-bold;
+    font-size: 16px;
+    line-height: 1;
+}
+
+//Responsive Mixins
+@mixin mobileL() {
+    @media screen and (max-width: $mobileL) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin laptopL() {
+    @media screen and (max-width: $laptopL) {
+        @content;
+    }
+}

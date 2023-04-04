@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "amw-services": "libs/amw-services",
+    "product": "apps/product",
+    "product-app": "libs/product-app",
+    "product-e2e": "apps/product-e2e"
+  }
+}

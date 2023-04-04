@@ -1,0 +1,110 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/product/src",
+  "projectType": "application",
+  "targets": {
+    "buildpkgwebpack": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "compiler": "babel",
+        "main": "apps/product/src/index.ts",
+        "entry": "apps/product/src/index.ts",
+        "outputPath": "dist/apps/product",
+        "index": "apps/product/src/index.ts",
+        "tsConfig": "apps/product/tsconfig.app.json",
+        "assets": ["apps/product/src/favicon.ico", "apps/product/src/assets"],
+        "styles": ["apps/product/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      }
+    },
+    "buildpkg": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps",
+        "tsConfig": "apps/product/tsconfig.app.json",
+        "project": "apps/product/package.json",
+        "entryFile": "apps/product/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": ["apps/product/src/favicon.ico", "apps/product/src/assets"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/product",
+        "index": "apps/product/src/index.html",
+        "baseHref": "/",
+        "main": "apps/product/src/main.tsx",
+        "polyfills": "apps/product/src/polyfills.ts",
+        "tsConfig": "apps/product/tsconfig.app.json",
+        "assets": ["apps/product/src/favicon.ico", "apps/product/src/assets"],
+        "styles": ["apps/product/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/product/src/environments/environment.ts",
+              "with": "apps/product/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "product:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "product:build:development"
+        },
+        "production": {
+          "buildTarget": "product:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/product/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/product"],
+      "options": {
+        "jestConfig": "apps/product/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
